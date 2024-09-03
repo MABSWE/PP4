@@ -10,3 +10,7 @@ class HomeView(ListView):
     model = Post
     template_name = 'home.html'
     context_object_name = 'posts'
+
+class ArticleDetailView(DetailView):
+    model = Post
+    template_name = 'detail_view.html'
