@@ -14,3 +14,4 @@ class HomeView(ListView):
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'detail_view.html'
+    context_object_name = 'post'
