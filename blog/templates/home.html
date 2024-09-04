@@ -8,7 +8,7 @@
         <a href="{% url 'article-detail' pk=post.pk %}">
             {{ post.title }}
         </a> - {{ post.author.first_name }} {{ post.author.last_name }} <br/>
-        {{ post.body }}
+        {{ post.content }}
     </li>
 {% endfor %}
 </ul>
