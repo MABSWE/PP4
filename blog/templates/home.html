@@ -1,10 +1,14 @@
 {% load static %}
 <link rel="icon" href="{% static 'blog/favicon.ico' %}" type="image/x-icon">
-<h1>Post</h1>
+
+<h1>Posts</h1>
 <ul>
 {% for post in posts %}
-    <li>{{ post.title }} {{ post.author }}</li>
-{% empty %}
-    <li>No posts available.</li>
+    <li>
+        <a href="{% url 'article-detail' pk=post.pk %}">
+            {{ post.title }}
+        </a> - {{ post.author.first_name }} {{ post.author.last_name }} <br/>
+        {{ post.body }}
+    </li>
 {% endfor %}
 </ul>
