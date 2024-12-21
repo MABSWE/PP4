@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-9yc#(n(4z6*xlh#dn-6dn6@p8+ko5)bil!_lmtvt+58@q^$+zk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-mabswe-pp4-mx96bk2rdt3.ws.codeinstitute-ide.net','.herokuapp.com']
+ALLOWED_HOSTS = ['8000-mabswe-pp4-mx96bk2rdt3.ws.codeinstitute-ide.net', '.herokuapp.com']
 
 
 # Application definition
@@ -90,9 +90,10 @@ DATABASES = {
 }
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
-    "https://*.herokuapp.com"
+    "https://*.herokuapp.com",
     "https://*.render.com"
 ]
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -129,7 +130,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [BASE_DIR / 'blog' / 'static']
+STATICFILES_DIRS = [
+    BASE_DIR / 'blog' / 'static'
+]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
