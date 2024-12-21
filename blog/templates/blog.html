@@ -1,1 +1,15 @@
-<p>Blog</p>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mt-4">Our Blog</h1>
+<ul class="list-group mt-4">
+    {% for post in posts %}
+    <li class="list-group-item">
+        <a href="{% url 'article-detail' pk=post.pk %}">
+            <h5>{{ post.title }}</h5>
+        </a>
+        <p>By: {{ post.author.first_name }} {{ post.author.last_name }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
