@@ -4,6 +4,7 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
+
 }
 
 .text-center {
@@ -43,4 +44,26 @@ footer a:hover {
 
 footer i {
     font-size: 24px;
+}
+
+/* Form */
+form {
+    background-color: #343a40;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form .form-control {
+    border: 1px solid #ced4da;
+}
+
+form .btn {
+    background-color: #17a2b8;
+    border: none;
+    color: #fff;
+}
+
+form .btn:hover {
+    background-color: #31ac21;
 }

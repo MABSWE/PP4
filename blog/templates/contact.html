@@ -1,1 +1,40 @@
-<p>Contact</p>
+{% extends 'base.html' %}
+
+{% block title %}
+Contact - CATABLOG
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center">Contact Us</h1>
+  <p class="text-center">We'd love to hear from you! Please fill out the form below.</p>
+  <hr class="mb-4">
+
+  <form method="post" action="{% url 'contact' %}">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="first_name">First Name <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="first_name" name="first_name" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" id="last_name" name="last_name">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email">Email <span class="text-danger">*</span></label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="subject">Subject <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" id="subject" name="subject" required>
+    </div>
+    <div class="mb-3">
+      <label for="message">Message <span class="text-danger">*</span></label>
+      <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+</div>
+{% endblock %}
