@@ -1,9 +1,15 @@
 html, body {
+    background-color: #000000;
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
 }
+
+.text-center {
+    color: white;
+}
+
 
 .page-wrapper {
     flex: 1;
