@@ -1,1 +1,50 @@
-<p>About</p>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About - CATABLOG
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="text-center">About Us</h1>
+    <hr class="my-4" style="border: 1px solid #ccc; width: 60%; margin: 0 auto;"> <!-- Fint streck efter rubriken -->
+    <p class="text-center mt-3">Welcome to CATABLOG, your go-to platform for cat blogging!</p>
+
+    <div class="my-5">
+        <h2>Our Mission</h2>
+        <p>At <strong>CATABLOG</strong>, our mission is to create a community where cat enthusiasts can share pictures of
+            their furry friends, ask questions, and find answers to everything related to cats. Whether you're a seasoned
+            cat owner or new to the world of felines, CATABLOG is the perfect place to share your journey and learn from
+            others.
+        </p>
+    </div>
+
+    <div class="my-5">
+        <h2>Our Community</h2>
+        <p>
+            We believe every cat has a story to tell, and through CATABLOG, you can give your cat the spotlight it
+            deserves. Here’s what you can do as part of our community:
+        </p>
+        <ul>
+            <li>Upload and showcase pictures of your beloved cats.</li>
+            <li>Engage with other cat lovers by commenting on their posts.</li>
+            <li>Ask questions or share advice on cat care, behavior, health, and more.</li>
+        </ul>
+    </div>
+
+    <div class="my-5">
+        <h2>Join Us!</h2>
+        <p>
+            Become a part of the <strong>CATABLOG</strong> family today and help us build the largest online hub for cat
+            lovers. Together, we can celebrate the joy, love, and companionship that our feline friends bring into our
+            lives.
+        </p>
+    </div>
+
+    <div class="text-center">
+        <img src="{% static 'images/mission.jpg' %}" alt="Our Mission" class="img-fluid rounded shadow"
+            style="border-radius: 20px; width: 75%; max-width: 600px;">
+    </div>
+</div>
+{% endblock %}
