@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
   <div class="text-center">
+    <img src="{% static 'images/logo.png' %}" alt="Catablog Logo" class="img-fluid mb-3" style="height: 100px;">
     <h1>Welcome to CATABLOG</h1>
     <p class="lead">Explore our blog posts about CATS!</p>
     <a href="{% url 'blog' %}" class="btn btn-primary mt-3">Go to Blog</a>
