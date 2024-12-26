@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect
-from django.core.mail import send_mail
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login
 from django.contrib import messages
-from .models import Post
-from .forms import ContactForm  
+from .models import Post, Comment
+from .forms import ContactForm, CommentForm
 
 # Home View (Welcome)
 def home(request):
@@ -17,11 +16,34 @@ class BlogView(ListView):
     template_name = 'blog.html'
     context_object_name = 'posts'
 
-# Detail view
-class ArticleDetailView(DetailView):
-    model = Post
-    template_name = 'detail_view.html'
-    context_object_name = 'post'
+# Detail view with Comments
+def article_detail_view(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    comments = post.comments.all() 
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            messages.success(request, "Your comment has been added!")
+            return redirect('article-detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'detail_view.html', {'post': post, 'form': form, 'comments': comments})
+
+# Add Comment View
+def add_comment(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            messages.success(request, "Your comment has been added!")
+    return redirect('article-detail', pk=post.pk)
 
 # About Page
 def about(request):
@@ -37,11 +59,8 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f"Account created for {username}! You can now log in.")
+            messages.success(request, f"Account created for {user.username}! You can now log in.")
             return redirect('login')
-        else:
-            messages.error(request, "Please correct the errors below.")
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
@@ -51,14 +70,11 @@ def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Simulated
+            # Simulerad funktion
             messages.success(request, "Your message has been sent successfully!")
             return redirect('contact')
-        else:
-            messages.error(request, "All fields are required. Please fill out the form.")
     else:
         form = ContactForm()
-    
     return render(request, 'contact.html', {'form': form})
 
 # Success Page for Contact Form
