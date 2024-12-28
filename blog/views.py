@@ -4,6 +4,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .models import Post, Comment
 from .forms import ContactForm, CommentForm, PostForm
+from django.http import HttpResponseForbidden
+
 
 # Home View (Welcome)
 def home(request):
@@ -55,6 +57,41 @@ def add_comment(request, pk):
             comment.save()
             messages.success(request, "Your comment has been added!")
     return redirect('article-detail', pk=post.pk)
+
+# Edit Comment View
+def edit_comment(request, post_pk, comment_pk):
+    post = get_object_or_404(Post, pk=post_pk)
+    comment = get_object_or_404(Comment, pk=comment_pk)
+
+    if comment.author != request.user:
+        return HttpResponseForbidden("You are not allowed to edit this comment.")
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your comment has been updated!")
+            return redirect('article-detail', pk=post_pk)
+    else:
+        form = CommentForm(instance=comment)
+
+    return render(request, 'edit_comment.html', {'form': form, 'post': post, 'comment': comment})
+
+
+# Delete Comment View
+def delete_comment(request, post_pk, comment_pk):
+    post = get_object_or_404(Post, pk=post_pk)
+    comment = get_object_or_404(Comment, pk=comment_pk)
+
+    if comment.author != request.user:
+        return HttpResponseForbidden("You are not allowed to delete this comment.")
+
+    if request.method == 'POST':
+        comment.delete()
+        messages.success(request, "Your comment has been deleted!")
+        return redirect('article-detail', pk=post_pk)
+
+    return render(request, 'delete_comment.html', {'post': post, 'comment': comment})
 
 # About Page
 def about(request):

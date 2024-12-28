@@ -14,4 +14,7 @@ urlpatterns = [
     path("contact/", views.contact_view, name="contact"),  # Contact Page
     path("contact-success/", views.contact_success_view, name="contact-success"),  # Contact Success Page
     path('blog/', views.blog_view, name='blog'),
+    path('article/<int:post_pk>/comment/<int:comment_pk>/edit/', views.edit_comment, name='edit_comment'), # Edit Comments
+    path('article/<int:post_pk>/comment/<int:comment_pk>/delete/', views.delete_comment, name='delete_comment'), # Delete Comments
+
 ]
