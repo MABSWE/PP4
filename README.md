@@ -28,3 +28,22 @@ CATABLOG is a full-stack web application designed as a blogging platform for cat
 - Create, edit, and delete posts (authenticated users only).
 - Comment system with edit and delete options for the comment owner.
 - Responsive design for desktop and mobile devices.
+
+## User Stories
+
+## Technologies Used
+### Front-End
+- HTML5
+- CSS3
+- Bootstrap
+
+### Back-End
+- Python 3
+- Django Framework
+
+### Database
+- SQLite (Development)
+
+### Others
+- Git and GitHub (Version control)
+- Render (Deployment)
