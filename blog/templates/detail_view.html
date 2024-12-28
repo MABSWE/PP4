@@ -55,13 +55,13 @@
         <form method="post" action="{% url 'add_comment' post.id %}">
             {% csrf_token %}
             <div class="form-group">
-                <textarea name="comment" class="form-control" rows="3" placeholder="Write your comment..."
+                <textarea name="body" class="form-control" rows="3" placeholder="Write your comment..."
                     required></textarea>
             </div>
             <button type="submit" class="btn btn-primary mt-2">Post Comment</button>
         </form>
         <hr />
-        
+
     </div>
 
     <!-- Back Button -->
