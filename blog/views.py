@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import Post, Comment
 from .forms import ContactForm, CommentForm, PostForm
 from django.http import HttpResponseForbidden
+from django.contrib.auth.decorators import login_required
 
 
 # Home View (Welcome)
@@ -48,6 +49,11 @@ def article_detail_view(request, pk):
 # Add Comment View
 def add_comment(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    
+    if not request.user.is_authenticated:
+        messages.error(request, "Please log in to post a comment.")
+        return redirect('login')
+
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -56,7 +62,9 @@ def add_comment(request, pk):
             comment.author = request.user
             comment.save()
             messages.success(request, "Your comment has been added!")
+    
     return redirect('article-detail', pk=post.pk)
+
 
 # Edit Comment View
 def edit_comment(request, post_pk, comment_pk):
