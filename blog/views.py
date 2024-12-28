@@ -39,10 +39,14 @@ def add_comment(request, pk):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
+            print("Form is valid")
             comment = form.save(commit=False)
             comment.post = post
+            comment.author = request.user
             comment.save()
+            print("Comment saved")
             messages.success(request, "Your comment has been added!")
+    else: print("Form is not valid")
     return redirect('article-detail', pk=post.pk)
 
 # About Page
