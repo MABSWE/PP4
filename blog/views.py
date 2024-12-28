@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .models import Post, Comment
 from .forms import ContactForm, CommentForm
@@ -19,7 +19,7 @@ class BlogView(ListView):
 # Detail view with Comments
 def article_detail_view(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    comments = post.comments.all() 
+    comments = post.comments.all()
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -39,14 +39,11 @@ def add_comment(request, pk):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
-            print("Form is valid")
             comment = form.save(commit=False)
             comment.post = post
             comment.author = request.user
             comment.save()
-            print("Comment saved")
             messages.success(request, "Your comment has been added!")
-    else: print("Form is not valid")
     return redirect('article-detail', pk=post.pk)
 
 # About Page
@@ -55,7 +52,23 @@ def about(request):
 
 # Login Page
 def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, f"You are now logged in as {username}!")
+            return redirect('home')  # Redirect to the home page or any other page
+        else:
+            messages.error(request, "Invalid username or password. Please try again.")
     return render(request, 'login.html')
+
+# Logout View
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You have been logged out.")
+    return redirect('home')
 
 # Register Page
 def register(request):
@@ -74,7 +87,6 @@ def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Simulerad funktion
             messages.success(request, "Your message has been sent successfully!")
             return redirect('contact')
     else:
