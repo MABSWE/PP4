@@ -20,7 +20,7 @@
             By: {{ post.author.first_name }} {{ post.author.last_name }}
           </p>
           <p class="card-text">
-            {{ post.content|truncatewords:20 }}
+            {{ post.content|linebreaks }}
           </p>
           <a href="{% url 'article-detail' post.pk %}" class="btn btn-primary mt-auto">Read More</a>
         </div>

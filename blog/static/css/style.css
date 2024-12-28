@@ -83,3 +83,11 @@ h2 {
     margin: 0 auto;
     color: #fff;
 }
+
+.card-body.text-center {
+    color: inherit;
+}
+
+.card-body .card-text {
+    color: #000 !important;
+}
