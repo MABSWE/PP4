@@ -1,20 +1,28 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .models import Post, Comment
-from .forms import ContactForm, CommentForm
+from .forms import ContactForm, CommentForm, PostForm
 
 # Home View (Welcome)
 def home(request):
     return render(request, 'home.html')
 
-# Blog Page
-class BlogView(ListView):
-    model = Post
-    template_name = 'blog.html'
-    context_object_name = 'posts'
+# Blog Page with Post Creation
+def blog_view(request):
+    posts = Post.objects.all()
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.success(request, "Your post has been added!")
+            return redirect('blog')
+    else:
+        form = PostForm()
+    return render(request, 'blog.html', {'posts': posts, 'form': form})
 
 # Detail view with Comments
 def article_detail_view(request, pk):

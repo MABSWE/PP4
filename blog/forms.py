@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment
+from .models import Comment, Post
 
 
 class ContactForm(forms.Form):
@@ -22,5 +22,26 @@ class CommentForm(forms.ModelForm):
                 'class': 'form-control',
                 'rows': 3,
                 'placeholder': 'Write your comment here...'
+            }),
+        }
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'content']
+        labels = {
+            'title': 'Post Title',
+            'content': 'Post Content',
+        }
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter the title of your post',
+            }),
+            'content': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 5,
+                'placeholder': 'Write the content of your post here...',
             }),
         }
