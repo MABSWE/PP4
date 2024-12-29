@@ -158,9 +158,21 @@ The W3C Jigsaw CSS Validation Service
 
 Service was used to check the Python code. To ensure that all Python code adheres to the PEP 8 style guide, the following steps were:
 
-<details><summary>Running pycodestyle .</summary><img src="read_img/pep8_1.png" alt="Pep8 image 1">
-  <img src="read_img/pep8_2.png" alt="Pep8 image 2"></details><hr>
-<details><summary>Running autopep8 --in-place --aggressive --aggressive **/*.py</summary><img src="read_img/pep8_3.png"></details><hr>
-<details><summary>Manual fix</summary><img src="read_img/pep8_4.png"></details><hr>
+#### Ran `pycodestyle` in the terminal to identify PEP 8 violations.
+
+<details><summary>Running pycodestyle .</summary>
+<img src="blog/static/images/validation/pep8_1.png" alt="Pep8 image 1">
+<img src="blog/static/images/validation/pep8_2.png" alt="Pep8 image 2">
+</details>
+<hr>
+
+#### Automated fixes running `autopep8 --in-place --aggressive --aggressive **/*.py`
+<details><summary>Running autopep8 --in-place --aggressive --aggressive **/*.py</summary><img src="blog/static/images/validation/pep8_3.png"></details><hr>
+
+#### Manually corrected remaining issues, including:
+   - Line length exceeding 79 characters.
+   - Missing blank lines between class or function definitions.
+   - Duplicates in `INSTALLED_APPS` in the Django settings.
+<details><summary>Manual fix</summary><img src="blog/static/images/validation/pep8_4.png"></details><hr>
 
 ##### Back to [top](#table-of-contents)<hr>
