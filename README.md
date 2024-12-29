@@ -319,6 +319,38 @@ The wireframes were created during the planning phase to visualize the design an
 
 ## Future Enhancements
 
+### 1. User Profile Management
+- **Purpose**: Provide users with personalized experiences.
+- **Proposed Features**:
+  - Enable users to update their profile information, such as bio and profile picture.
+  - Display user-specific dashboards showing their posts and comments.
+
+### 2. Post Categories and Tags
+- **Purpose**: Improve content organization and discoverability.
+- **Proposed Features**:
+  - Add categories or tags to posts.
+  - Allow users to filter or search posts by category or tag.
+
+### 3. Social Media Integration
+- **Purpose**: Increase platform visibility and user engagement.
+- **Proposed Features**:
+  - Enable social media sharing for blog posts.
+  - Allow users to log in using social media accounts.
+
+### 4. Search Functionality
+- **Purpose**: Make it easier for users to find specific content.
+- **Proposed Features**:
+  - Add a search bar to the blog page for finding posts by title, author, or content.
+
+### 5. Mobile App
+- **Purpose**: Increase accessibility and user engagement.
+- **Proposed Features**:
+  - Develop a mobile app version of the platform.
+  - Incorporate push notifications for updates and interactions.
+
 ##### Back to [top](#table-of-contents)<hr>
 
+
 ## Acknowledgments
+
+- **Student Support Team**: A heartfelt thank you to the Student Support team for their unwavering assistance and encouragement throughout the project. Your guidance made a significant difference in overcoming challenges and achieving success.
