@@ -243,3 +243,82 @@ The database is configured in `settings.py` to dynamically parse the database co
 
 ##### Back to [top](#table-of-contents)<hr>
 
+## Wireframes
+
+### Overview
+The wireframes were created during the planning phase to visualize the design and layout of the application. They served as a blueprint for implementing the user interface, ensuring the design met accessibility and usability standards.
+
+### Home Page
+- **Purpose**: Serves as the landing page for users visiting the site. Provides a welcoming introduction to the platform.
+- **Features**:
+  - A welcoming heading ("Welcome to CATABLOG").
+  - A call-to-action button leading to the blog page.
+  - Responsive design for both desktop and mobile users.
+<details><summary>Home</summary>
+<img src="blog/static/images/wireframes/home_page.png" alt="Pep8 image 1">
+</details>
+<hr>
+
+### About Page
+- **Purpose**: Explains the platform's mission and vision to users.
+- **Features**:
+  - A clean and informative design to enhance readability.
+  - A brief introduction about the platform and its goals.
+  - Fully responsive for various devices.
+<details><summary>About</summary>
+<img src="blog/static/images/wireframes/about_page.png" alt="Pep8 image 1">
+</details>
+<hr>
+
+### Blog Page
+- **Purpose**: Displays a list of posts created by users, with the ability to add new posts if logged in.
+- **Features**:
+  - Shows all posts in a card layout with a title, truncated content, and an optional image.
+  - "Read More" links to detailed views of posts.
+  - Authenticated users can create posts, including uploading images.
+  - Pagination for better user experience with larger datasets.
+<details><summary>Blog</summary>
+<img src="blog/static/images/wireframes/blog_page.png" alt="Blog Page Wireframe">
+</details>
+<hr>
+
+### Login Page
+- **Purpose**: Allows users to log in and access restricted features such as posting or commenting.
+- **Features**:
+  - Simple and user-friendly form for username and password.
+  - Displays feedback messages for successful or unsuccessful login attempts.
+  - "Remember Me" option for user convenience.
+<details><summary>Login</summary>
+<img src="blog/static/images/wireframes/login_page.png" alt="Login Page Wireframe">
+</details>
+<hr>
+
+### Register Page
+- **Purpose**: Enables new users to create an account on the platform.
+- **Features**:
+  - Form fields for username, email, password, and password confirmation.
+  - Validates input and provides error messages for invalid fields.
+  - Redirects to the login page after successful registration with a success message.
+<details><summary>Register</summary>
+<img src="blog/static/images/wireframes/register_page.png" alt="Register Page Wireframe">
+</details>
+<hr>
+
+### Contact Page
+- **Purpose**: Allows users to send messages or queries to the platform's administrator.
+- **Features**:
+  - Form fields for first name, last name, email, subject, and message.
+  - Validates input fields before submission.
+  - Displays a success message upon form submission.
+<details><summary>Contact</summary>
+<img src="blog/static/images/wireframes/contact_page.png" alt="Contact Page Wireframe">
+</details>
+<hr>
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Future Enhancements
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Acknowledgments
