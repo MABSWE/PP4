@@ -176,3 +176,36 @@ Service was used to check the Python code. To ensure that all Python code adhere
 <details><summary>Manual fix</summary><img src="blog/static/images/validation/pep8_4.png"></details><hr>
 
 ##### Back to [top](#table-of-contents)<hr>
+
+
+## Testing
+
+This project was validated and tested manually to ensure full functionality, usability, responsiveness, and proper data management.
+
+### Manual Test Cases
+The following aspects of the application were thoroughly tested:
+
+1. **Navigation:**
+   - Ensured all links navigate to the correct pages.
+   - Checked the responsiveness of the navbar on mobile, tablet, and desktop views.
+
+2. **Form Validation:**
+   - Tested all forms with valid and invalid inputs.
+   - Verified error messages appear when invalid data is submitted.
+
+3. **User Authentication:**
+   - Registered new users, logged in, logged out, and reset passwords.
+
+4. **Database Management:**
+   - Created, read, updated, and deleted records in the database using the admin panel and the front-end interface.
+
+### Validation Tools
+The following tools were used to validate the application:
+- **Pycodestyle:** Ensured PEP 8 compliance.
+- **HTML Validator:** Validated the HTML structure.
+- **CSS Validator:** Checked CSS styles for errors and warnings.
+
+All test cases passed successfully, ensuring the application works as expected.
+
+##### Back to [top](#table-of-contents)<hr>
+
