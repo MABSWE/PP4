@@ -6,10 +6,15 @@ from django.utils.text import slugify
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # Post model for blog posts
+
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="blog_posts")
     content = models.TextField(default="")
     image = models.ImageField(upload_to='post_images/', blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -24,10 +29,19 @@ class Post(models.Model):
         return self.title
 
 # Comment model for user comments
+
+
 class Comment(models.Model):
-    post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_comments", default=1)  # Default user ID 1
-    body = models.TextField() 
+    post = models.ForeignKey(
+        Post,
+        related_name="comments",
+        on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_comments",
+        default=1)  # Default user ID 1
+    body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=True)
 

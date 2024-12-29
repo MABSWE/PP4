@@ -20,11 +20,18 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='comment',
             name='author',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='user_comments', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='user_comments',
+                to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AlterField(
             model_name='comment',
             name='approved',
-            field=models.BooleanField(default=True),
+            field=models.BooleanField(
+                default=True
+            ),
         ),
     ]

@@ -151,12 +151,12 @@ W3C was used for validating html code
 The W3C Jigsaw CSS Validation Service
 
 <details><summary>style.css</summary>
-  <a href="read_img/base.css.png" target="_blank"><img src="read_img/base.css.png" alt="Base.css image"></a>
+  <img src="blog/static/images/validation/css_valid.png" alt="Base.css image"></a>
 </details><hr>
 
 ### PEP8 Validation
 
-Service was used to check the Python code
+Service was used to check the Python code. To ensure that all Python code adheres to the PEP 8 style guide, the following steps were:
 
 <details><summary>Running pycodestyle .</summary><img src="read_img/pep8_1.png" alt="Pep8 image 1">
   <img src="read_img/pep8_2.png" alt="Pep8 image 2"></details><hr>
