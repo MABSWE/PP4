@@ -221,13 +221,22 @@ Service was used to check the Python code. To ensure that all Python code adhere
 <hr>
 
 #### Automated fixes running `autopep8 --in-place --aggressive --aggressive **/*.py`
-<details><summary>Running autopep8 --in-place --aggressive --aggressive **/*.py</summary><img src="blog/static/images/validation/pep8_3.png"></details><hr>
+<details><summary>Autopep8</summary><img src="blog/static/images/validation/pep8_3.png"></details><hr>
 
 #### Manually corrected remaining issues, including:
    - Line length exceeding 79 characters.
    - Missing blank lines between class or function definitions.
    - Duplicates in `INSTALLED_APPS` in the Django settings.
 <details><summary>Manual fix</summary><img src="blog/static/images/validation/pep8_4.png"></details><hr>
+
+### JSON Validation
+
+[Jsonlint](https://jsonlint.com)
+
+<details><summary>json</summary>
+  <img src="blog/static/images/validation/json_valid.png" alt="json image"></a>
+</details><hr>
+
 
 ##### Back to [top](#table-of-contents)<hr>
 
