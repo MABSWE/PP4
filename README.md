@@ -300,7 +300,7 @@ The database is configured in `settings.py` to dynamically parse the database co
 ## Wireframes
 
 ### Overview
-The wireframes were created during the planning phase to visualize the design and layout of the application. They served as a blueprint for implementing the user interface, ensuring the design met accessibility and usability standards.
+The wireframes were created during the planning phase to visualize the design and layout of the application. They served as a blueprint for implementing the user interface, ensuring the design met accessibility and usability standards. The wireframes for this project were created using **Uizard.io**.
 
 ### Home Page
 - **Purpose**: Serves as the landing page for users visiting the site. Provides a welcoming introduction to the platform.
