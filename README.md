@@ -1,6 +1,6 @@
 # CATABLOG - A Community Blog Platform
 
-![Project Mockup](static/img/mockup.png)
+![Project Mockup](blog/static/images/wireframes/mockup.png)
 
 ### Live Link:
 
