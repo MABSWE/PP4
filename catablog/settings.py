@@ -28,11 +28,12 @@ SECRET_KEY = (
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-mabswe-pp4-mx96bk2rdt3.ws.codeinstitute-ide.net',
     '.herokuapp.com'
+    'pp4-dv3w.onrender.com'
 ]
 
 # Application definition
