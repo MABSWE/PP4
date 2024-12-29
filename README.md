@@ -209,3 +209,37 @@ All test cases passed successfully, ensuring the application works as expected.
 
 ##### Back to [top](#table-of-contents)<hr>
 
+## Database
+
+### Overview
+The application uses a **cloud-hosted PostgreSQL database**, configured through an environment variable for secure and flexible deployment. This setup ensures a scalable and production-ready database that can handle increasing amounts of data and user interactions.
+
+### Models
+The database is structured using Django models to maintain a relational structure. Below are the key models and their attributes:
+
+#### **Post**
+- `title`: Title of the post (CharField, max_length=200)
+- `slug`: URL-friendly representation of the title (SlugField, unique)
+- `author`: Linked to the `User` model (ForeignKey)
+- `content`: Text content of the post (TextField)
+- `image`: Optional image for the post (ImageField)
+- `created_on`: Timestamp when the post was created (DateTimeField, auto_now_add)
+- `updated_on`: Timestamp when the post was last updated (DateTimeField, auto_now)
+
+#### **Comment**
+- `post`: Linked to the `Post` model (ForeignKey)
+- `author`: Linked to the `User` model (ForeignKey)
+- `body`: Text content of the comment (TextField)
+- `created_on`: Timestamp when the comment was created (DateTimeField, auto_now_add)
+- `approved`: Boolean to indicate if the comment is approved (default=True)
+
+### Database Features
+1. **Relational Structure**: Models are interconnected using ForeignKeys to ensure a normalized database schema.
+2. **Automatic Migrations**: Django migrations are used to manage database schema changes seamlessly.
+3. **Scalability**: While SQLite is used for development, the application can easily switch to PostgreSQL in production with minimal configuration changes.
+
+### Configuration
+The database is configured in `settings.py` to dynamically parse the database connection string from an environment variable. This approach enhances security and deployment flexibility.
+
+##### Back to [top](#table-of-contents)<hr>
+
